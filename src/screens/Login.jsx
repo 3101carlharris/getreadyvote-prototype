@@ -4,12 +4,13 @@ import Footer from '../components/Footer';
 
 export default function Login() {
   const navigate = useNavigate();
-  const [contact, setContact] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [error, setError] = useState('');
 
   function handleContinue() {
-    if (!contact.trim()) {
-      setError('Please enter your phone number or email address.');
+    if (!phone.trim() && !email.trim()) {
+      setError('Please enter a phone number or email address to continue.');
       return;
     }
     navigate('/voter-plan');
@@ -27,18 +28,35 @@ export default function Login() {
           </p>
         </div>
 
-        <div className="form-group">
-          <label className="form-label" htmlFor="contact">Phone number or email</label>
-          <input
-            id="contact"
-            className="form-input"
-            type="text"
-            inputMode="email"
-            autoComplete="email tel"
-            placeholder="e.g. (801) 555-0100 or jamie@example.com"
-            value={contact}
-            onChange={e => { setContact(e.target.value); setError(''); }}
-          />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div className="form-group">
+            <label className="form-label" htmlFor="phone">Phone number</label>
+            <input
+              id="phone"
+              className="form-input"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              placeholder="e.g. (801) 555-0100"
+              value={phone}
+              onChange={e => { setPhone(e.target.value); setError(''); }}
+            />
+          </div>
+
+          <div className="form-group">
+            <label className="form-label" htmlFor="email">Email address</label>
+            <input
+              id="email"
+              className="form-input"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              placeholder="e.g. jamie@example.com"
+              value={email}
+              onChange={e => { setEmail(e.target.value); setError(''); }}
+            />
+          </div>
+
           <p className="form-hint">We'll only contact you about voter registration deadlines and election reminders.</p>
         </div>
 

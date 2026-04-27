@@ -54,12 +54,12 @@ export default function NotRegistered() {
               <span className="detail-row__value">{dob}</span>
             </div>
             <div className="detail-row">
-              <span className="detail-row__label">Address</span>
-              <span className="detail-row__value" style={{ maxWidth: '60%', textAlign: 'right' }}>{address}</span>
-            </div>
-            <div className="detail-row">
               <span className="detail-row__label">State</span>
               <span className="detail-row__value">Utah</span>
+            </div>
+            <div className="detail-row">
+              <span className="detail-row__label">Address</span>
+              <span className="detail-row__value" style={{ maxWidth: '60%', textAlign: 'right' }}>{address}</span>
             </div>
           </div>
         </div>
