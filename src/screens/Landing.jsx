@@ -113,40 +113,32 @@ export default function Landing() {
       </section>
 
       {/* Get voting updates */}
-      <section
-        aria-labelledby="updates-heading"
-        style={{ background: 'var(--color-bg-secondary)', padding: '24px 16px', display: 'flex', flexDirection: 'column', gap: '16px' }}
-      >
-        <h2 id="updates-heading" style={{ fontSize: '24px', fontWeight: 500 }}>Get voting updates</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <p style={{ fontSize: '16px', lineHeight: '24px' }}>
-            Sign up for text reminders about registration deadlines, ID requirements, and key dates. We'll only text you when it matters.
-          </p>
-          <p style={{ fontSize: '12px', fontWeight: 500, lineHeight: '18px', letterSpacing: '0.2px', color: 'var(--color-text-primary)' }}>
-            We don't sell or share your information with third parties.
-          </p>
+      <section aria-labelledby="updates-heading" className="landing-updates">
+        <div className="landing-updates__inner">
+          <h2 id="updates-heading" style={{ fontSize: '24px', fontWeight: 500 }}>Get voting updates</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <p style={{ fontSize: '16px', lineHeight: '24px' }}>
+              Sign up for text reminders about registration deadlines, ID requirements, and key dates. We'll only text you when it matters.
+            </p>
+            <p style={{ fontSize: '12px', fontWeight: 500, lineHeight: '18px', letterSpacing: '0.2px', color: 'var(--color-text-primary)' }}>
+              We don't sell or share your information with third parties.
+            </p>
+          </div>
+          <button
+            type="button"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              background: 'none', border: 'none', cursor: 'pointer',
+              fontFamily: 'var(--font)', fontSize: '18px', fontWeight: 500,
+              color: 'var(--color-text-primary)', padding: 0,
+            }}
+          >
+            Get text reminders
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
         </div>
-        <button
-          type="button"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            fontFamily: 'var(--font)',
-            fontSize: '18px',
-            fontWeight: 500,
-            color: 'var(--color-text-primary)',
-            padding: 0,
-          }}
-        >
-          Get text reminders
-          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
       </section>
 
       <Footer />

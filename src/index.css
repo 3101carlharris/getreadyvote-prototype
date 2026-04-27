@@ -87,6 +87,7 @@ body {
   aria-label: "Menu";
 }
 .site-header__menu:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+.site-header__nav { display: none; }
 .site-header__menu span {
   display: block;
   width: 22px;
@@ -285,3 +286,94 @@ body {
 /* ── Alert box ── */
 .alert { border-radius: 8px; padding: 16px; font-size: 16px; line-height: 1.5; }
 .alert-info { background: #ebf5ff; color: var(--color-accent); border: 1px solid var(--color-accent); }
+
+/* ── Landing updates band ── */
+.landing-updates { background: var(--color-bg-secondary); padding: 24px 16px; }
+.landing-updates__inner { display: flex; flex-direction: column; gap: 16px; }
+
+/* ── Footer inner wrapper ── */
+.site-footer__inner { display: flex; flex-direction: column; }
+
+/* ── Voter plan layout ── */
+.voter-plan-page { padding: 24px 16px; display: flex; flex-direction: column; gap: 24px; }
+.voter-plan-welcome-desktop { display: none; }
+.voter-plan-desktop-details { display: none; }
+.voter-plan-body { display: flex; flex-direction: column; gap: 24px; }
+.voter-plan-left { display: flex; flex-direction: column; gap: 16px; }
+.voter-plan-right { display: flex; flex-direction: column; gap: 16px; }
+.voter-plan-section-label { font-size: 12px; font-weight: 500; letter-spacing: 0.2px; text-transform: uppercase; color: var(--color-text-secondary); }
+.voter-plan-edit-btn { background: none; border: none; cursor: pointer; font-family: var(--font); font-size: 16px; color: var(--color-text-primary); text-decoration: underline; padding: 0; display: flex; align-items: center; gap: 4px; }
+.voter-plan-edit-btn:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+/* Steps: vertical by default */
+.voter-plan-steps { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 20px; margin-bottom: 24px; }
+.voter-plan-step { display: flex; gap: 16px; align-items: flex-start; position: relative; }
+.voter-plan-step__dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; display: flex; align-items: center; justify-content: center; }
+.voter-plan-step__dot--done { background: #111; }
+.voter-plan-step__dot--current { background: transparent; border: 2px solid #111; }
+.voter-plan-step__dot--upcoming { background: transparent; border: 2px solid #d0d0d0; }
+.voter-plan-step__label { font-size: 12px; letter-spacing: 0.2px; margin-bottom: 2px; }
+.voter-plan-step__label--done, .voter-plan-step__title--done { color: #c8c8c8; }
+.voter-plan-step__label--current, .voter-plan-step__title--current { color: #111; }
+.voter-plan-step__label--upcoming, .voter-plan-step__title--upcoming { color: #6a6a6a; }
+.voter-plan-step__title { font-size: 18px; font-weight: 500; }
+
+/* ══════════════════════════════
+   RESPONSIVE — DESKTOP (768px+)
+   ══════════════════════════════ */
+@media (min-width: 768px) {
+  body { background: var(--color-bg); }
+  .app-shell { max-width: 100%; }
+
+  /* Header: white bg, full nav */
+  .site-header { background: var(--color-bg); border-bottom: 1px solid var(--color-border); height: 80px; padding: 0 40px; }
+  .site-header__menu { display: none; }
+  .site-header__nav { display: flex; align-items: center; gap: 32px; }
+  .site-header__nav-link { font-size: 16px; font-weight: 500; color: var(--color-text-primary); text-decoration: none; white-space: nowrap; }
+  .site-header__nav-link:hover { text-decoration: underline; }
+  .site-header__nav-link:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+  /* Content: centered column */
+  .page-section { max-width: 640px; margin: 0 auto; padding: 48px 24px; width: 100%; }
+
+  /* Landing updates inner centering */
+  .landing-updates { padding: 48px 24px; }
+  .landing-updates__inner { max-width: 640px; margin: 0 auto; }
+
+  /* Voter plan: tablet-width single column */
+  .voter-plan-page { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
+
+  /* Footer: two-column grid */
+  .site-footer { padding: 48px 40px; }
+  .site-footer__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1280px; margin: 0 auto; align-items: start; }
+  .site-footer__brand { grid-column: 1; grid-row: 1; margin-bottom: 0; }
+  .site-footer__cfa { grid-column: 1; grid-row: 2; }
+  .site-footer__links { grid-column: 2; grid-row: 1 / span 2; flex-direction: column; margin-bottom: 0; gap: 16px; }
+  .site-footer__link { font-size: 16px; }
+}
+
+/* ════════════════════════════════════
+   VOTER PLAN — TWO COLUMN (1024px+)
+   ════════════════════════════════════ */
+@media (min-width: 1024px) {
+  .voter-plan-page { max-width: 1280px; padding: 48px 40px; gap: 32px; }
+
+  /* Show desktop heading, hide mobile welcome card */
+  .voter-plan-welcome-mobile { display: none; }
+  .voter-plan-welcome-desktop { display: flex; flex-direction: column; gap: 8px; }
+  .voter-plan-desktop-details { display: block; }
+
+  /* Two-column grid */
+  .voter-plan-body { display: grid; grid-template-columns: 1fr 400px; gap: 24px; align-items: start; }
+
+  /* Horizontal steps */
+  .voter-plan-steps { flex-direction: row; gap: 0; margin-bottom: 32px; }
+  .voter-plan-step { flex: 1; flex-direction: column; gap: 6px; align-items: flex-start; }
+  .voter-plan-step__dot { margin-top: 0; }
+  .voter-plan-step:not(:last-child)::after { content: ''; position: absolute; top: 7px; left: 16px; right: 0; height: 2px; background: var(--color-border-secondary); }
+  .voter-plan-step__title { font-size: 16px; }
+  .voter-plan-step__text { padding-right: 8px; }
+
+  /* Continue btn: auto width on desktop */
+  .voter-plan-continue-btn { width: auto; }
+}
