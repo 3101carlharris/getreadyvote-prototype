@@ -32,7 +32,7 @@ export default function RegisterMethod() {
 
   function handleSelect(id) {
     setAnswer('registrationMethod', id);
-    navigate('/voter-plan');
+    navigate('/documents');
   }
 
   return (
@@ -73,7 +73,6 @@ export default function RegisterMethod() {
           Back
         </button>
       </div>
-
       <Footer />
     </>
   );

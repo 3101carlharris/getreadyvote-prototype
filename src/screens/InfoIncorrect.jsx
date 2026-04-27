@@ -11,11 +11,21 @@ const CHANGED_OPTIONS = [
 export default function InfoIncorrect() {
   const navigate = useNavigate();
   const [selected, setSelected] = useState([]);
+  const [error, setError] = useState('');
 
   function toggle(id) {
+    setError('');
     setSelected(prev =>
       prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
     );
+  }
+
+  function handleContinue() {
+    if (selected.length === 0) {
+      setError('Please select at least one option before continuing.');
+      return;
+    }
+    navigate('/screener');
   }
 
   return (
@@ -52,13 +62,14 @@ export default function InfoIncorrect() {
           <strong>Re-registering is easy.</strong> You can update your registration online, by mail, or in person — we'll show you the easiest option.
         </div>
 
+        {error && (
+          <p role="alert" style={{ fontSize: '16px', color: '#b91c1c', fontWeight: 500 }}>
+            {error}
+          </p>
+        )}
+
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <button
-            className="btn btn-primary"
-            disabled={selected.length === 0}
-            style={{ opacity: selected.length === 0 ? 0.5 : 1, cursor: selected.length === 0 ? 'not-allowed' : 'pointer' }}
-            onClick={() => navigate('/screener')}
-          >
+          <button className="btn btn-primary" onClick={handleContinue}>
             Continue
           </button>
           <button className="btn btn-outline" onClick={() => navigate(-1)}>
@@ -66,7 +77,6 @@ export default function InfoIncorrect() {
           </button>
         </div>
       </div>
-
       <Footer />
     </>
   );
