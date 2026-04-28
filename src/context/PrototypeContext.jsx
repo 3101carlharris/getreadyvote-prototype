@@ -11,6 +11,7 @@ export function PrototypeProvider({ children }) {
     address: '',
     documents: [],
     registrationMethod: null,
+    registrationPath: null,
   });
 
   function setAnswer(key, value) {

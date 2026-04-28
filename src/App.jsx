@@ -14,6 +14,7 @@ import VoterPlanSignUp from './screens/VoterPlanSignUp';
 import Login from './screens/Login';
 import VoterPlan from './screens/VoterPlan';
 import VoterPlanRegistered from './screens/VoterPlanRegistered';
+import PathSelector from './screens/PathSelector';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Header />
           <main id="main-content" className="page-main">
             <Routes>
+              <Route path="/path-select" element={<PathSelector />} />
               <Route path="/" element={<Landing />} />
               <Route path="/registration" element={<RegistrationLookup />} />
               <Route path="/registration/found" element={<RegistrationFound />} />
