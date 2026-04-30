@@ -15,6 +15,10 @@ import Login from './screens/Login';
 import VoterPlan from './screens/VoterPlan';
 import VoterPlanRegistered from './screens/VoterPlanRegistered';
 import PathSelector from './screens/PathSelector';
+import VoteMethod from './screens/VoteMethod';
+import VoteDocuments from './screens/VoteDocuments';
+import VoteConfirm from './screens/VoteConfirm';
+import VoterPlanId from './screens/VoterPlanId';
 
 export default function App() {
   return (
@@ -38,6 +42,10 @@ export default function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/voter-plan" element={<VoterPlan />} />
               <Route path="/voter-plan/registered" element={<VoterPlanRegistered />} />
+              <Route path="/vote-method" element={<VoteMethod />} />
+              <Route path="/vote-documents" element={<VoteDocuments />} />
+              <Route path="/vote-confirm" element={<VoteConfirm />} />
+              <Route path="/voter-plan/id" element={<VoterPlanId />} />
             </Routes>
           </main>
         </div>

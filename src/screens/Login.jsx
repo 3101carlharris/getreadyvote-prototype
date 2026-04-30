@@ -1,19 +1,23 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { usePrototype } from '../context/PrototypeContext';
 import Footer from '../components/Footer';
 
 export default function Login() {
   const navigate = useNavigate();
+  const { answers } = usePrototype();
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+
+  const nextPath = answers.registrationPath === 'found' ? '/voter-plan/id' : '/voter-plan';
 
   function handleContinue() {
     if (!phone.trim() && !email.trim()) {
       setError('Please enter a phone number or email address to continue.');
       return;
     }
-    navigate('/voter-plan');
+    navigate(nextPath);
   }
 
   return (
@@ -70,7 +74,7 @@ export default function Login() {
           <button className="btn btn-primary" onClick={handleContinue}>
             Continue
           </button>
-          <button className="btn btn-outline" onClick={() => navigate('/voter-plan')}>
+          <button className="btn btn-outline" onClick={() => navigate(nextPath)}>
             Skip for now
           </button>
         </div>

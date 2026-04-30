@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { usePrototype } from '../context/PrototypeContext';
 import Footer from '../components/Footer';
 
-const DOCUMENTS = [
+const VOTE_DOCUMENTS = [
   {
     id: 'drivers-license',
     label: 'Utah Driver License or state ID',
@@ -41,10 +41,10 @@ const DOCUMENTS = [
   },
 ];
 
-export default function DocumentSelection() {
+export default function VoteDocuments() {
   const navigate = useNavigate();
-  const { setAnswer } = usePrototype();
-  const [selected, setSelected] = useState([]);
+  const { answers, setAnswer } = usePrototype();
+  const [selected, setSelected] = useState(answers.voteDocuments || []);
   const [error, setError] = useState('');
 
   function toggle(id) {
@@ -66,24 +66,17 @@ export default function DocumentSelection() {
       setError('Please select at least one option before continuing.');
       return;
     }
-    setAnswer('documents', selected);
-    if (selected.includes('none')) {
-      navigate('/secondary-documents');
-    } else {
-      navigate('/signup');
-    }
+    setAnswer('voteDocuments', selected);
+    navigate('/vote-confirm');
   }
 
   return (
     <>
       <div className="page-section">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <h1 style={{ fontSize: '32px', fontWeight: 500, lineHeight: 1.2 }}>
-            Check your documents to register
+            Check your documents to vote
           </h1>
-          <p style={{ fontSize: '18px', lineHeight: 1.5 }}>
-            Utah's new voter registration law requires proof of U.S. citizenship. You'll need one or more of these documents to register.
-          </p>
         </div>
 
         <fieldset style={{ border: 'none', padding: 0 }}>
@@ -91,7 +84,7 @@ export default function DocumentSelection() {
             Select all the documents you have
           </legend>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {DOCUMENTS.map(doc => (
+            {VOTE_DOCUMENTS.map(doc => (
               <label key={doc.id} className="checkbox-card">
                 <input
                   type="checkbox"
@@ -122,7 +115,7 @@ export default function DocumentSelection() {
           <button className="btn btn-primary" onClick={handleContinue}>
             Continue
           </button>
-          <button className="btn btn-outline" onClick={() => navigate(-1)}>
+          <button className="btn btn-outline" onClick={() => navigate('/vote-method')}>
             Back
           </button>
         </div>

@@ -12,6 +12,8 @@ export function PrototypeProvider({ children }) {
     documents: [],
     registrationMethod: null,
     registrationPath: null,
+    voteMethod: null,
+    voteDocuments: [],
   });
 
   function setAnswer(key, value) {
