@@ -20,7 +20,10 @@ export default function NotRegistered() {
     <>
       <div className="page-section">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <span style={{ fontSize: '48px' }} role="img" aria-label="Not found">⚠️</span>
+          <svg aria-hidden="true" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="22" cy="22" r="14.4" stroke="#111111" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <line x1="34.6" y1="34.6" x2="40.8" y2="40.8" stroke="#111111" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
           <h1 style={{ fontSize: '32px', fontWeight: 500, lineHeight: 1.2 }}>
             It looks like you're not registered to vote in Utah
           </h1>

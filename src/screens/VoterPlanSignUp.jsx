@@ -15,9 +15,12 @@ const METHOD_TAGS = {
 };
 
 const DOC_LABELS = {
-  'drivers-license': "Utah driver's license",
-  passport: 'U.S. Passport',
+  'drivers-license': 'Utah Driver License or state ID',
+  passport: 'U.S. passport or passport card',
+  'birth-certificate': 'U.S. birth certificate',
   'military-id': 'U.S. Military ID',
+  naturalization: 'Naturalization certificate',
+  'gov-photo-id': 'Government issued photo ID',
   'tribal-id': 'Tribal ID',
   'student-id': 'Student ID',
   'tribal-number': 'Tribal enrollment number',
