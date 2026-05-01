@@ -43,7 +43,14 @@ export default function VoterPlanSignUp() {
   const name = answers.name || 'Jamie Smith';
   const firstName = name.split(' ')[0];
   const method = answers.registrationMethod || 'online';
-  const docs = (answers.documents || []).filter(d => d !== 'none');
+  const DOC_ORDER = ['drivers-license', 'passport', 'birth-certificate', 'military-id', 'naturalization', 'gov-photo-id'];
+  const docs = (answers.documents || [])
+    .filter(d => d !== 'none')
+    .sort((a, b) => {
+      const ai = DOC_ORDER.indexOf(a);
+      const bi = DOC_ORDER.indexOf(b);
+      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+    });
 
   return (
     <>
